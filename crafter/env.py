@@ -25,7 +25,7 @@ except ImportError:
 class Env(BaseClass):
 
   def __init__(
-      self, area=(64, 64), view=(9, 9), size=(64, 64),
+      self, area=(64, 64), view=(9, 9), size=(600, 800),
       reward=True, length=10000, seed=None):
     view = np.array(view if hasattr(view, '__len__') else (view, view))
     size = np.array(size if hasattr(size, '__len__') else (size, size))
@@ -52,7 +52,8 @@ class Env(BaseClass):
     self._unlocked = None
     # Some libraries expect these attributes to be set.
     self.reward_range = None
-    self.metadata = None
+    self.metadata = {"render_fps": 30, "render_modes": ["rgb_array"]}
+    self.render_mode = "rgb_array"
 
   @property
   def observation_space(self):
