@@ -256,6 +256,8 @@ class SemanticView:
     self._obj_ids = {
         c: len(self._mat_ids) + i
         for i, c in enumerate(obj_types)}
+    print(self._mat_ids)
+    print(self._obj_ids)
 
   def __call__(self):
     canvas = self._world._mat_map.copy()
