@@ -81,7 +81,11 @@ class Env(BaseClass):
     self._world.add(self._player)
     self._unlocked = set()
     worldgen.generate_world(self._world, self._player)
-    info = {"options": options}
+    info = {"options": options,
+            'semantic': self._sem_view(),
+            'inventory': self._player.inventory.copy(),
+          'achievements': self._player.achievements.copy(),
+          }
     return self._obs(), info
 
   def step(self, action):
